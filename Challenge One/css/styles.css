@@ -44,6 +44,7 @@ main {
   justify-self: center;
   text-align: center;
   border: 3px solid black;
+  border-radius: 25px;
   padding: 12px;
   background: rgba(221, 221, 221, 0.35);
 }

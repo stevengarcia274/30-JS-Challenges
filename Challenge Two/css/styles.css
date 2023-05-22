@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap");
+
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
 }
 
 body {
@@ -10,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: rgb(126, 207, 235);
+  /* background: rgb(0, 0, 0); */
 }
 
 .clock-body {
@@ -23,6 +26,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /* background: rgb(61, 255, 2); */
   z-index: -2;
   border-radius: 50%;
   margin-bottom: 24px;
@@ -46,7 +50,7 @@ body {
 #hrs {
   width: 4px;
   height: 70px;
-  background: black;
+  background: rgb(16, 100, 255);
   z-index: 0;
 }
 
@@ -60,5 +64,11 @@ body {
 #min {
   width: 4px;
   height: 140px;
-  background: black;
+  background: rgb(0, 0, 0);
+}
+
+#demo {
+  color: black;
+  font-size: 1.2rem;
+  text-align: center;
 }

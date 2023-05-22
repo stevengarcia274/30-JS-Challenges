@@ -1,0 +1,64 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(126, 207, 235);
+}
+
+.clock-body {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border: 6px solid black;
+  background-image: url("../imgs/clock_two.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+
+#clock-center {
+  width: 4px;
+  height: 4px;
+  background-color: orange;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+}
+
+.hands {
+  position: absolute;
+  transform-origin: bottom center;
+  bottom: 50%;
+}
+
+#hrs {
+  width: 4px;
+  height: 70px;
+  background: black;
+  z-index: 0;
+}
+
+#sec {
+  width: 4px;
+  height: 140px;
+  background: red;
+  z-index: -1;
+}
+
+#min {
+  width: 4px;
+  height: 140px;
+  background: black;
+}

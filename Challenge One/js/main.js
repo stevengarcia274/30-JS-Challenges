@@ -20,41 +20,28 @@ document.onkeydown = function (e) {
   let keyNum = e.keyCode;
 
   if(sounds.has(keyNum) == false){
-    return 0;
+    return;
   }else{
     let playKey = sounds.get(keyNum);
     parentOf = playKey.parentElement;
-    parentOf.style.background = "rgba(53, 136, 238, 0.65)";
+    parentOf.classList.add("pressed");
     
+    playKey.currentTime = 0;
     playKey.play();
   }
 };
 
-document.onkeyup = function (e) {
-  let keyNum = e.keyCode;
-  /* console.log("keyup");
-  console.log(keyNum); */
-
-  if(sounds.has(keyNum) == false){
-    return 0;
+function removeTransition(item){
+  if(item.propertyName != "transform"){
+    return;
   }else{
-    let playKey = sounds.get(keyNum);
-
-    parentOf = playKey.parentElement;
-    parentOf.style.background = "rgba(221, 221, 221, 0.35)";
-    
+    item.srcElement.classList.remove("pressed");
+    /* this.classList...does the same thing */
   }
-};
+  /* console.log(item.propertyName);
+  console.log(item); */
 
+}
 
-
-
-
-/* let playWhat = sounds.get(74); */
-
-/* document.getElementById("press-s").addEventListener("click", () => playWhat.play());
-
-let audA = document.getElementById("audio-a");
-
-
-document.getElementById("press-a").addEventListener("click", () => audA.play()); */
+const keys = document.querySelectorAll(".beat-item");
+keys.forEach( e => e.addEventListener("transitionend", removeTransition));

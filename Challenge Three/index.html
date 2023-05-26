@@ -8,21 +8,40 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <p id="site-header">Update CSS Variables with JS</p>
+    <p id="site-header">
+      Update CSS Variables with <span id="js-txt">JS</span>
+    </p>
     <div class="controls">
       <div class="img-setting" id="spacing">
         Spacing
-        <input type="range" min="0" max="50" value="25" class="slider" />
+        <input
+          type="range"
+          min="0"
+          max="25"
+          value="0"
+          class="slider"
+          id="s-slider"
+        />
       </div>
       <div class="img-setting" id="blur">
         Blur
-        <input type="range" min="0" max="50" value="25" class="slider" />
+        <input
+          type="range"
+          min="0"
+          max="25"
+          value="0"
+          class="slider"
+          id="b-slider"
+        />
       </div>
       <div class="img-setting" id="base-color">
         Base Color
         <input type="color" id="base-picker" />
       </div>
       <div id="img"><img src="./images/city_bridge.jpg" alt="bridge" /></div>
+      <p id="demo"></p>
     </div>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>

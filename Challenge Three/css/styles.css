@@ -2,7 +2,7 @@
   --text-color: rgb(255, 255, 255);
   --page-background: rgb(16, 31, 57);
   --img-blur: 0px;
-  --base-pick: rgb(122, 253, 6);
+  --base-pick: #000000;
   --spacing-amnt: 0px;
 }
 
@@ -81,6 +81,7 @@ body {
   margin-top: 12px;
   width: 100%;
   max-width: 64px;
+  cursor: pointer;
 }
 
 #img {

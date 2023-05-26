@@ -1,16 +1,73 @@
+:root {
+  --text-color: rgb(255, 255, 255);
+  --page-background: rgb(16, 31, 57);
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  padding: 74px;
+  background: var(--page-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#site-header {
+  color: var(--text-color);
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+}
+
+.img-setting {
+  color: var(--text-color);
+  text-align: center;
+  font-weight: 100;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
 }
 
 .slider {
+  margin-top: 12px;
+  display: block;
   -webkit-appearance: none;
   appearance: none;
-  width: 100px;
-  height: 5px;
-  background: grey;
-  border: none;
-  border-radius: 50px;
-  opacity: 0.65;
+  height: 3px;
+  border-radius: 25px;
+  background: rgb(214, 214, 214);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: opacity 0.3s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgb(255, 255, 255);
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#base-color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#base-picker {
+  margin-top: 12px;
 }

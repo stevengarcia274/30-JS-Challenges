@@ -8,14 +8,20 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <h1>Update CSS Variables with JS</h1>
+    <p id="site-header">Update CSS Variables with JS</p>
     <div class="controls">
-      <div>
+      <div class="img-setting" id="spacing">
         Spacing
-        <input type="range" min="0" max="50" value="50" class="slider" />
+        <input type="range" min="0" max="50" value="25" class="slider" />
       </div>
-      <div>Blur</div>
-      <div>Base Color</div>
+      <div class="img-setting" id="blur">
+        Blur
+        <input type="range" min="0" max="50" value="25" class="slider" />
+      </div>
+      <div class="img-setting" id="base-color">
+        Base Color
+        <input type="color" id="base-picker" />
+      </div>
     </div>
   </body>
 </html>

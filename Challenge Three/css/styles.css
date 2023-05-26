@@ -23,9 +23,16 @@ body {
   color: var(--text-color);
   font-size: 3.5rem;
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .img-setting {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: var(--text-color);
   text-align: center;
   font-weight: 100;
@@ -34,6 +41,8 @@ body {
 }
 
 .slider {
+  width: 100%;
+  max-width: 116px;
   margin-top: 12px;
   display: block;
   -webkit-appearance: none;
@@ -61,13 +70,18 @@ body {
   cursor: pointer;
 }
 
-#base-color {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 #base-picker {
   margin-top: 12px;
+  width: 100%;
+  max-width: 64px;
+}
+
+#img {
+  width: 100%;
+  max-width: 500px;
+}
+
+#img > img {
+  width: 100%;
+  object-fit: cover;
 }

@@ -1,9 +1,9 @@
 :root {
   --text-color: rgb(255, 255, 255);
   --page-background: rgb(16, 31, 57);
-  --img-blur: 0px;
-  --base-pick: #000000;
-  --spacing-amnt: 0px;
+  --blur: 0px;
+  --base-picker: #000000;
+  --space: 10px;
 }
 
 * {
@@ -23,7 +23,7 @@ body {
 }
 
 #js-txt {
-  color: var(--base-pick);
+  color: var(--base-picker);
 }
 
 #site-header {
@@ -87,11 +87,13 @@ body {
 #img {
   width: 100%;
   max-width: 500px;
+  background: var(--base-picker);
 }
 
 #img > img {
   width: 100%;
   object-fit: cover;
-  filter: blur(var(--img-blur));
-  border: var(--spacing-amnt) solid var(--base-pick);
+  filter: blur(var(--blur));
+  /* border: var(--spacing-amnt) solid var(--base-pick); */
+  padding: var(--space);
 }

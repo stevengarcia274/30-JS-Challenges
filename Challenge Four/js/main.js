@@ -39,7 +39,8 @@ console.log("q1");
 console.log(bornIn(inventors, 1500));
 
 
-
+/* map returns same amount of items in array that you 
+give it */
 let nameArr = inventors.map(e => (e.last + ", " + e.first));
 
 /* 2 */
@@ -48,7 +49,7 @@ console.log(nameArr.sort());
 
 /* 3 */
 console.log("q3");
-console.log(inventors.sort((a,b) => a.year - b.year));
+console.table(inventors.sort((a,b) => a.year - b.year));
 
 /* 4 */
 
@@ -60,15 +61,31 @@ console.log(all);
 console.log("q5");
 console.log(inventors.sort((a,b) => (a.passed - a.year) - (b.passed - b.year)));
 
+/* 6 */
+/* const category = document.querySelector(".mw-category");
+const links = Array.from(category.querySelectorAll("a"));
+const de = links.map(link => link.textContent);
+var matches = de.filter(e => e.match(/de/i)); */
+
 /* 7 */
-let sortPeople = people.sort();
 console.log("q7");
-console.log(sortPeople);
+let sortPeople = people.sort(function (curOne, nxtOne) {
+    const [aLast, aFirst] = curOne.split(", ");
+    const [bLast, bFirst] = nxtOne.split(", ");
+
+    return aLast > bLast ? 1 : -1;
+
+
+});
+
+console.log(sortPeople)
 
 
 
 /* 8 */
- const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+console.log("q8");
+
+ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', "plane", "plane" ];
 
 let dataInst = {};
 for (let i = 0; i < data.length; i++){
@@ -78,6 +95,22 @@ for (let i = 0; i < data.length; i++){
         dataInst[data[i]] = 1;
     }
 }
-console.log("q8");
+
+const countInst = data.reduce(function (obj, item) {
+
+    if(obj[item]){
+        obj[item] ++;
+    }else{
+        obj[item] = 1;
+    }
+    return obj;
+    
+
+}, {});
+
+console.log("tutorial method");
+console.log(countInst);
+
+console.log("my method");
 console.log(dataInst);
 

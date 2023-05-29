@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Permanent Marker", cursive;
+}
+
+#container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  font-size: 2rem;
+  flex: 1;
+}
+
+#lets {
+  background: url("../images/cold_nature.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#take {
+  background: url("../images/valley_nature.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#it {
+  background: url("../images/green_nature.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#all {
+  background: url("../images/sand_nature.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#in {
+  background: url("../images/space_nature.jpg");
+  background-size: cover;
+  background-position: center;
+}

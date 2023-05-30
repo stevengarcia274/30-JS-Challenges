@@ -27,6 +27,7 @@ function flexGrow(){
         conItems.forEach(function (e){
             /* all items need to be set back to 1 and values switched to off */
             e.style.flex = "1";
+            e.style.fontSize = "3.5rem";
             e.dataset.value = "false";
         });
     }else{
@@ -38,9 +39,12 @@ function flexGrow(){
             if(e.getAttribute("id") === current ){
                 /* if it IS the currently clicked item set its flex grow to 3*/
                 e.style.flex = "5";
+                e.style.fontSize = "3.5rem";
+
             }else{
                 /* if the item during iteration does not match our current clicked item TURN its value to false (off) and set its flex to 1 */
                 e.style.flex ="1";
+                e.style.fontSize = "2rem";
                 e.dataset.value = "false";
             }
         });

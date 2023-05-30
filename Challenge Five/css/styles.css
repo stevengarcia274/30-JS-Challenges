@@ -18,9 +18,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  text-align: center;
   min-height: 100vh;
-  color: rgb(210, 210, 210);
+  color: rgb(255, 255, 255);
   font-size: 3.5rem;
 }
 
@@ -57,6 +58,10 @@
   background-size: cover;
   background-position: center;
   flex: 1;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (max-width: 900px) {

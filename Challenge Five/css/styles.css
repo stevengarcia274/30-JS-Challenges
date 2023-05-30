@@ -20,37 +20,51 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  color: white;
-  font-size: 2rem;
-  flex: 1;
+  color: rgb(210, 210, 210);
+  font-size: 3.5rem;
 }
 
 #lets {
   background: url("../images/cold_nature.jpg");
   background-size: cover;
   background-position: center;
+  flex: 1;
 }
 
 #take {
   background: url("../images/valley_nature.jpg");
   background-size: cover;
   background-position: center;
+  flex: 1;
 }
 
 #it {
   background: url("../images/green_nature.jpg");
   background-size: cover;
   background-position: center;
+  flex: 1;
 }
 
 #all {
   background: url("../images/sand_nature.jpg");
   background-size: cover;
   background-position: center;
+  flex: 1;
 }
 
 #in {
   background: url("../images/space_nature.jpg");
   background-size: cover;
   background-position: center;
+  flex: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  #container {
+    flex-direction: column;
+  }
+
+  .item {
+    min-height: 0;
+  }
 }

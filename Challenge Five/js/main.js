@@ -8,11 +8,6 @@ console.log(conItems);
 
 conItems.forEach(e => e.addEventListener("click", flexGrow));
 
-/* conItems.forEach(e => e.addEventListener("click", myOff)); */
-
-
-
-
 
 function flexGrow(){
     //current item that was clicked on
@@ -29,8 +24,7 @@ function flexGrow(){
             e.style.flex = "1";
             e.style.fontSize = "3.5rem";
             e.dataset.value = "false";
-            let display = e.querySelectorAll(".hidden");
-            display.forEach(e => e.style.display="none");
+            hideItems(e, "none");
         });
     }else{
         /* else this means that the item that was clicked needs to grow */
@@ -42,20 +36,24 @@ function flexGrow(){
                 /* if it IS the currently clicked item set its flex grow to 3*/
                 e.style.flex = "5";
                 e.style.fontSize = "3.5rem";
-                let display = e.querySelectorAll(".hidden");
-                display.forEach(e => e.style.display="block");
+                hideItems(e, "block");
 
             }else{
-                /* if the item during iteration does not match our current clicked item TURN its value to false (off) and set its flex to 1 */
+                /* if the item during iteration does not match our current clicked
+                item TURN its value to false (off) and set its flex to 1 */
                 e.style.flex ="1";
                 e.style.fontSize = "2rem";
                 e.dataset.value = "false";
-                let display = e.querySelectorAll(".hidden");
-                display.forEach(e => e.style.display="none");
+                hideItems(e, "none");
             }
         });
     }
     console.log("after click " + this.dataset.value)
+}
+
+function hideItems(element, status){
+    let display = element.querySelectorAll(".hidden");
+    display.forEach(e => e.style.display = status);
 }
 
 

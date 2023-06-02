@@ -1,22 +1,9 @@
+const container = document.querySelector(".container");
 
-const items = document.querySelectorAll(".item");
+const conItems = container.querySelectorAll(".item");
 
-function toggleOpen(){
+conItems.forEach(item => item.addEventListener("click", toggleOn));
 
-    this.classList.toggle("open");
-
+function toggleOn(){
+    conItems.forEach(item => item.getAttribute("id") !== this.getAttribute(("id")) ? item.classList.remove("grow") : item.classList.toggle("grow"));
 }
-
-function toggleActive(e){
-    console.log(e.propertyName);
-    if (e.propertyName.includes("flex")){
-        this.classList.toggle("open-active");
-    }
-
-}
-
-
-items.forEach(item => item.addEventListener("click", toggleOpen));
-
-
-items.forEach(item => item.addEventListener("transitionend", toggleActive));

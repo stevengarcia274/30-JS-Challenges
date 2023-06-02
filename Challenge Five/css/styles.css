@@ -28,6 +28,10 @@
   background-position: center;
 }
 
+.grow {
+  flex: 5;
+}
+
 #lets {
   background-image: url("../images/cold_nature.jpg");
 }

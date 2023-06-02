@@ -8,72 +8,64 @@
 }
 
 .container {
-  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
-}
-
-.item > * {
-  width: 100%;
-  transition: transform 0.5s;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.item > *:first-child {
-  transform: translateY(-100%);
-}
-
-.item.open-active > *:first-child {
-  transform: translateY(0);
-}
-
-.item > *:last-child {
-  transform: translateY(100%);
-}
-
-.item.open-active > *:last-child {
-  transform: translateY(0);
-}
-
-.item.open {
-  font-size: 40px;
-  flex: 5;
+  overflow-y: hidden;
 }
 
 .item {
+  color: white;
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  justify-content: center;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
 }
 
-.lets {
+.item > p {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item > p:nth-child(1) {
+  transform: translateY(-100%);
+}
+
+.item > p:nth-child(3) {
+  transform: translateY(100%);
+}
+
+.regular {
+  flex: 1;
+  font-size: 2rem;
+}
+
+.grow {
+  flex: 5;
+  font-size: 3.5rem;
+}
+
+#lets {
   background-image: url("../images/cold_nature.jpg");
 }
 
-.take {
+#take {
   background-image: url("../images/valley_nature.jpg");
 }
 
-.it {
+#it {
   background-image: url("../images/green_nature.jpg");
 }
 
-.all {
+#all {
   background-image: url("../images/sand_nature.jpg");
 }
 
-.in {
+#in {
   background-image: url("../images/space_nature.jpg");
 }

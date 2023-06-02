@@ -30,22 +30,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .item > p:nth-child(1) {
   transform: translateY(-100%);
 }
 
+.item.grow-active > p:nth-child(1) {
+  transform: translateY(0);
+}
+
 .item > p:nth-child(3) {
   transform: translateY(100%);
 }
 
-.regular {
+.item.grow-active > p:nth-child(3) {
+  transform: translateY(0);
+}
+
+.item.regular {
   flex: 1;
   font-size: 2rem;
 }
 
-.grow {
+.item.grow {
   flex: 5;
   font-size: 3.5rem;
 }

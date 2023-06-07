@@ -5,27 +5,19 @@
     toppings : ["chocolate", "peanuts"],
  };
 
- 
-function placeOrder(fruitName, production){
-    setTimeout(() => {
-        console.log(`order placed, ${stocks.fruits[fruitName]} flavor selected`);
-        production();
-
-    }, 2000);
-
-    
+ let isShopOpen = true;
 
 
-}
+ let order = (time, work) => {
 
-function startProd(){
-    setTimeout(() => {
-        console.log("production has started");
-        setTimeout(() => {
-            console.log("fruit has been cut");
-        }, 2000);
+    return new Promise( (resolve, reject) => {
 
-    }, 0);
-}
+        if(isShopOpen){
+            resolve( work() );
+        }else{
+            reject(console.log("our shop is closed"));
+        }
 
-placeOrder(2, startProd);
+
+    });
+ };

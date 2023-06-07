@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#click-container {
+  display: flex;
+  align-items: center;
+}
+
+#tutorial-header {
+  display: inline-block;
+  margin: 16px;
+}
+
+#info {
+  padding: 8px 12px;
+  background: rgb(72, 172, 172);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: all linear 0.05s;
+}
+
+#info:active {
+  background: rgb(22, 161, 161);
+  transform: scale(97%);
+}

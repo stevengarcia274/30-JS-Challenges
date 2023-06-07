@@ -5,13 +5,12 @@ const stocks = {
     toppings : ["chocolate", "peanuts"],
 };
 
-let isShopOpen = true;
+let isShopOpen = false;
 
 function time(ms){
-    return new Promise( (resolve, reject ) => {
+    return new Promise( (resolve, reject) => {
         if(isShopOpen){
             setTimeout(resolve, ms);
-            
         }else{
             reject(console.log("shop is closed"));
         }
@@ -21,33 +20,20 @@ function time(ms){
 async function kitchen(){
     try{
         await time(2000);
-        console.log(`${stocks.fruits[0]} chosen`);
-
-        console.log("start production");
-
-        await time(2000);
-        console.log("fruit is chopped");
-
+        console.log("order processed");
+        await time(0000);
+        console.log("begin production");
         await time(1000);
-        console.log(`${stocks.liquid[0]} and ${stocks.liquid[1]} added`);
-
+        console.log("the fruit has been chopped");
         await time(1000);
-        console.log("machine started");
+        console.log("product served");
 
-        await time(2000);
-        console.log(`${stocks.holder[1]} selected as container`);
-
-        await time(2000);
-        console.log("ice cream served");
-
-        
     }
     catch(error){
         console.log("customer left");
-
     }
     finally{
-        console.log("day is done");
+        console.log("end of day");
     }
 }
 

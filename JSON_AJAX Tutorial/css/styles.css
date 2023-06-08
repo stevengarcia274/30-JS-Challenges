@@ -5,19 +5,25 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  padding: 24px 64px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 #click-container {
   display: flex;
   align-items: center;
 }
 
-#tutorial-header {
-  display: inline-block;
-  margin: 16px;
-}
-
 #info {
   padding: 8px 12px;
   background: rgb(72, 172, 172);
+  margin-left: 12px;
   color: white;
   border: none;
   border-radius: 5px;
@@ -27,4 +33,9 @@
 #info:active {
   background: rgb(22, 161, 161);
   transform: scale(97%);
+}
+
+.info-item {
+  border-bottom: 2px solid rgb(219, 219, 219);
+  padding: 8px;
 }

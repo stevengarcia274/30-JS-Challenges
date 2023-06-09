@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(238, 182, 0);
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+#search {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  width: 100%;
+  height: 56px;
+  max-width: 450px;
+  font-size: 1.3rem;
+}
+
+#search:focus {
+  border: 4px solid rgb(218, 218, 218);
+  border-radius: 5px;
+}
+
+#search::placeholder {
+  color: rgb(177, 177, 177);
+}

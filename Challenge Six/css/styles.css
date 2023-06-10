@@ -27,6 +27,10 @@ body {
   border-radius: 5px;
 }
 
+.test {
+  background: red;
+}
+
 #search::placeholder {
   color: rgb(177, 177, 177);
 }

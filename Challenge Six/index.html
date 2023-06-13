@@ -9,10 +9,16 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <input type="text" id="search" placeholder="City or State" />
-    <div id="demo"></div>
-
-    <button id="click">click here</button>
+    <form action="#">
+      <input
+        type="text"
+        id="search"
+        placeholder="City or State"
+        autocomplete="off"
+        maxlength="45"
+      />
+      <div id="results-container"></div>
+    </form>
 
     <script src="js/main.js"></script>
   </body>

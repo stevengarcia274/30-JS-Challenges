@@ -12,7 +12,6 @@ searchBar.addEventListener("keyup", () => {
 
 searchBar.addEventListener("focusout", clearDemo);
 
-
 function getData(search) { 
     //XMLrequest
     const dataPull = new XMLHttpRequest;
@@ -20,6 +19,7 @@ function getData(search) {
 
     dataPull.onload = function (){
         let jsonData = JSON.parse(dataPull.responseText);
+
 
         const searchExp = new RegExp(search, "gi");
 
@@ -40,8 +40,14 @@ function getData(search) {
                 /* I only want to display the top ten results based on population */
                 while(i < (x.length > 10 ? 10 : x.length)){
                     //if there's less then ten returned only show those
-                    txt += `<p class="result">${sortedX[i].city}, ${sortedX[i].state}
-                    <span class="pop">${sortedX[i].population}</span></p>`;
+
+                    let pop = Number(sortedX[i].population);
+                    let popStr = pop.toLocaleString("en-US");
+
+                    txt += `<p class="result">
+                    <span class=location>${sortedX[i].city}, ${sortedX[i].state}</span>
+                    <span class="pop">${popStr}</span>
+                    </p>`;
                     i++;
                 }
 
@@ -65,3 +71,6 @@ function getData(search) {
 function clearDemo(){
     searchResults.innerHTML = "";
 }
+
+
+

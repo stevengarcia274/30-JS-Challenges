@@ -21,7 +21,7 @@ async function kitchen(){
     try{
         await time(2000);
         console.log("order processed");
-        await time(0000);
+        await time(0);
         console.log("begin production");
         await time(1000);
         console.log("the fruit has been chopped");

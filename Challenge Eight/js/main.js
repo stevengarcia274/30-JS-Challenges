@@ -5,7 +5,7 @@ canvas.width = window.innerWidth;
 
 const c = canvas.getContext("2d");
 
-let mouse = {
+var mouse = {
     x : undefined,
     y : undefined 
 }
@@ -14,7 +14,6 @@ window.addEventListener("mousemove",
     function(event){
         mouse.x = event.x;
         mouse.y = event.y;
-        console.log(mouse);
     
 });
 
@@ -34,7 +33,6 @@ function Circle(x, y, radius, dx, dy){
     }
 
     this.update = function(){
-        this.draw();
 
         if((this.x + this.radius > innerWidth) || (this.x - this.radius < 0)){
             this.dx = -this.dx;
@@ -49,9 +47,14 @@ function Circle(x, y, radius, dx, dy){
         this.y += this.dy;
 
         //interactiviy
-        if(mouse.x - this.x < 50 && mouse.x - this.x > -50){
+        if(mouse.x - this.x < 50){
             this.radius += 1;
         }
+
+        this.draw();
+
+
+        
     }
 }
 

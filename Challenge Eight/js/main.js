@@ -1,96 +1,76 @@
-const canvas = document.querySelector("canvas");
+let canvas = document.querySelector("canvas");
 
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-const c = canvas.getContext("2d");
 
-var mouse = {
-    x : undefined,
-    y : undefined 
+let c = canvas.getContext("2d");
+
+c.strokeStyle = "#BADA55";
+c.lineJoin = "round";
+c.lineCap = "round";
+c.lineWidth = 0;
+/* c.globalCompositeOperation = "multiply"; */
+
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+let hue = 0
+let direction = true;
+
+function draw(e){
+    if(!isDrawing){
+        return;//stop fnc when mouse is not down
+    }
+
+    console.log(e);
+    
+    c.beginPath();
+
+    c.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+
+    //start from
+    c.moveTo(lastX, lastY);
+
+    //go to
+    c.lineTo(e.offsetX, e.offsetY);
+    c.stroke();
+
+    lastX = e.offsetX;
+    lastY = e.offsetY;
+    hue ++;
+    if(hue >= 360){
+        hue = 0;
+    }
+
+    if(c.lineWidth >= 100 || c.lineWidth <= 1){
+        direction = !direction;
+    }
+    if(direction){
+        c.lineWidth ++;
+    }else{
+        c.lineWidth --;
+
+    }
+
+
 }
 
-window.addEventListener("mousemove", 
-    function(event){
-        mouse.x = event.x;
-        mouse.y = event.y;
-    
+
+canvas.addEventListener("mousedown", (e) => {
+    isDrawing = true;
+    lastX = e.offsetX;
+    lastY = e.offsetY;
 });
 
-function Circle(x, y, radius, dx, dy){
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.dx = dx;
-    this.dy = dy;
+canvas.addEventListener("mousemove", draw);
 
-
-    this.draw = function(){
-        c.beginPath();
-        c.arc(this.x, this.y, radius, 0, Math.PI * 2, false);
-        c.stroke();
-        c.fill();
-    }
-
-    this.update = function(){
-
-        if((this.x + this.radius > innerWidth) || (this.x - this.radius < 0)){
-            this.dx = -this.dx;
-        } 
-
-        if((this.y + this.radius > innerHeight) || (this.y - this.radius < 0)){
-            this.dy = -this.dy;
-        }
-
-
-        this.x += this.dx;
-        this.y += this.dy;
-
-        //interactiviy
-        if(mouse.x - this.x < 50){
-            this.radius += 1;
-        }
-
-        this.draw();
-
-
-        
-    }
-}
-
-
-
-
-
-let circles = [];
-
-for(let i = 0; i < 100; i++){
-    const radius = 40;
-    let x = Math.floor(Math.random() * (innerWidth - radius * 2)) + radius;
-    let y = Math.floor(Math.random() * (innerHeight - radius * 2)) + radius;
-    let dx = (Math.random() - 0.5) * 3;
-    let dy = (Math.random() - 0.5) * 3;
-
-    circles.push(new Circle(x, y, radius, dx, dy));
-
-}
-
-
-function animate(){
-    requestAnimationFrame(animate);
-    c.clearRect(0, 0, innerWidth, innerHeight);
-
-    for(let x in circles){
-        circles[x].update();
-    }
-
-}
-
-
-animate();
-
-
-
+canvas.addEventListener("mouseup", () => { 
+    isDrawing = false;
+})
+canvas.addEventListener("mouseout", () => { 
+    isDrawing = false;
+})
 
 
 

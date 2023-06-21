@@ -16,24 +16,15 @@ console.log(c2.checked); */
 
 boxes.forEach(box => {
     box.addEventListener("click", (e) => {
-        console.log(document.getElementById(box.id).checked + "l");
-        lastClickedOn(box.id);
-        console.log(e);
         
-        console.log(lastClicked);
-    })
-})
+    });
+    
+});
 
-function lastClickedOn(id){
-    let curEle = document.getElementById(id);
-    console.log(curEle.checked);
-
-    if(curEle.checked == false ){
-        console.log("inherer");
-        return
-        
+window.addEventListener("keyup", (e) => {
+    if(e.key == 'Shift'){
+        console.log(e.key);
     }else{
-        lastClicked = id;
+        return
     }
-
-}
+});

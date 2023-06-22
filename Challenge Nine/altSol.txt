@@ -4,7 +4,9 @@ let lastClicked;
 
 boxes.forEach( box => {
     box.addEventListener("click", handleClick);
+    
 })
+
 
 function handleClick(e){
     let inBetween = false;

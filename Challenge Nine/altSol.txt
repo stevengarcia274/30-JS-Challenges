@@ -1,0 +1,27 @@
+const boxes = document.querySelectorAll(".choice");
+
+let lastClicked;
+
+boxes.forEach( box => {
+    box.addEventListener("click", handleClick);
+})
+
+function handleClick(e){
+    let inBetween = false;
+    if(e.shiftKey && this.checked){
+        boxes.forEach( box => {
+            if(box === this || box === lastClicked){
+                inBetween = !inBetween;
+            }
+
+            console.log()
+
+            if(inBetween){
+                box.checked = true;
+            }
+
+        });
+    }
+
+    lastClicked = this;
+}

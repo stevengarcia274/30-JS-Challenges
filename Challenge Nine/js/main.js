@@ -64,4 +64,3 @@ boxes.forEach(box => {
 
     });
 });
-

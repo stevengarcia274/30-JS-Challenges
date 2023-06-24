@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <video
-      src="./videos/pexels-peter-fowler-6394054-4096x2048-24fps.mp4"
-    ></video>
+    <div class="video-player">
+      <video id="video-one">
+        <source
+          src="./videos/pexels-peter-fowler-6394054-4096x2048-24fps.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="video-controls"></div>
+      <div id="video-tracker"></div>
+    </div>
+
+    <div class="sample">
+      <div class="son"></div>
+    </div>
 
     <script src="./js/main.js"></script>
   </body>

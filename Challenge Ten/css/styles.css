@@ -45,6 +45,8 @@ body {
 
 .video-buttons {
   display: none;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 12px;
 }
 

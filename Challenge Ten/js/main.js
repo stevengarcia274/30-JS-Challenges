@@ -5,12 +5,17 @@ const videoButtons = document.querySelector(".video-buttons");
 const play = document.getElementById("display");
 const volSlider = document.getElementById("vol-slider");
 const speed = document.getElementById("speed-slider");
+const forward = document.getElementById("forward");
+const backward = document.getElementById("backward");
 
 
 let isPlaying = false;
 let atEnd = false;
 
 let interval;
+
+const forwardAmnt = 25;
+const backwardAmnt = 10;
 
 function playVideo(){
     isPlaying = !isPlaying;
@@ -33,7 +38,6 @@ function updateTime(){
         clearInterval(interval);
         play.innerHTML = '<i class="fa-solid fa-play"></i>'; 
         video.load();
-        progressBar.style.width = `0.3%`;
 
         /* console.log("end"); */
     }
@@ -78,4 +82,24 @@ speed.addEventListener("mousemove", () => {
 speed.addEventListener("click", () => {
     video.playbackRate = speed.value / 100;
 });
+
+forward.addEventListener("click", () => {
+    let jumpTo = video.currentTime + forwardAmnt;
+    if(jumpTo >= video.duration){
+        play.innerHTML = '<i class="fa-solid fa-play"></i>';
+        video.load();
+
+    }else{
+        video.currentTime = jumpTo;
+        let num = (jumpTo / video.duration) * 100;
+        progressBar.style.width = `${num.toFixed(2)}%`;
+    }
+});
+
+backward.addEventListener("click", () => {
+    let backTo = video.currentTime - backwardAmnt;
+    video.currentTime = backTo;
+});
+
+
 

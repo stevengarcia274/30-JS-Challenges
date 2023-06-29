@@ -6,11 +6,10 @@
 
 :root {
   --orange-color: rgb(255, 141, 3);
-  --page-background: rgb(255, 219, 151);
 }
 
 body {
-  background: var(--page-background);
+  background: rgb(255, 219, 151);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -23,7 +22,7 @@ body {
   position: relative;
 }
 
-video {
+#video-one {
   display: block;
   width: 100%;
 }
@@ -37,10 +36,11 @@ video {
   opacity: 0.8;
 }
 
-.progress {
-  width: 50%;
+#progress-bar {
+  width: 0%;
   height: 8px;
   background: var(--orange-color);
+  transition: all 0.3s;
 }
 
 .video-buttons {

@@ -1,11 +1,46 @@
-const video = document.querySelector("video");
-const play = document.querySelector(".play");
-const videoPlayer = document.querySelector(".video-player");
+const player = document.querySelector(".player");
+const video = player.querySelector(".viewer");
+const progress = player.querySelector(".progress");
+const progressBar = player.querySelector(".progress__filled");
+const toggle = player.querySelector(".toggle");
+const skipButtons = player.querySelectorAll("[data-skip]");
+const ranges = player.querySelectorAll(".player__slider");
 
-function playVideo(){
+
+function togglePlay(){
     video.paused ? video.play() : video.pause();
 }
 
-play.addEventListener("click", playVideo);
+function updateButton(){
+    const icon = this.paused ? '►' : '❚ ❚';
+    console.log(icon);
+    toggle.textContent = icon;
+    console.log(this);
+}
 
-videoPlayer.addEventListener("click", playVideo);
+function skip(){
+    console.log("skipping");
+    console.log(this.dataset.skip);
+    video.currentTime += parseFloat(this.dataset.skip);
+
+}
+
+function handleRangeUpdate(){
+    console.log(this.value);
+
+}
+
+
+video.addEventListener("click", togglePlay);
+video.addEventListener("play", updateButton);
+video.addEventListener("pause", updateButton);
+
+toggle.addEventListener("click", togglePlay);
+
+skipButtons.forEach(e => {
+    e.addEventListener("click", skip);
+})
+
+ranges.forEach( e => {
+    e.addEventListener("change", handleRangeUpdate);
+})

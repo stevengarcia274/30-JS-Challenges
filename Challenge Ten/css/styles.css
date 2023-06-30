@@ -21,6 +21,7 @@ body {
   width: 100%;
   max-width: 800px;
   position: relative;
+  overflow: hidden;
 }
 
 video {
@@ -35,23 +36,29 @@ video {
   width: 100%;
   background: rgb(31, 31, 31);
   opacity: 0.8;
+  transform: translateY(44px);
+  transition: all 0.5s;
+}
+
+.video-controls:hover {
+  transform: translateY(0px);
 }
 
 .progress {
   width: 50%;
-  height: 8px;
+  height: 12px;
   background: var(--orange-color);
 }
 
 .video-buttons {
-  display: none;
-  align-items: center;
-  justify-content: space-evenly;
+  display: flex;
   padding: 12px;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .fa-solid {
-  color: rgb(210, 210, 210);
+  color: rgb(224, 224, 224);
   font-size: 1.2rem;
 }
 
@@ -64,7 +71,6 @@ video {
   appearance: none;
   width: 200px;
   height: 8px;
-  margin-left: 25px;
   border-radius: 5px;
   background: rgb(210, 210, 210);
 }
@@ -77,8 +83,4 @@ video {
   border-radius: 50%;
   cursor: pointer;
   background: var(--orange-color);
-}
-
-.skip-ahead {
-  margin-left: 24px;
 }

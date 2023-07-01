@@ -13,39 +13,17 @@
     <link rel="stylesheet" href="./css/fontawesome.min.css" />
   </head>
   <body>
-    <div class="player">
-      <video
-        class="player__video viewer"
-        src="./videos/video (1080p).mp4"
-      ></video>
-
-      <div class="player__controls">
-        <div class="progress">
-          <div class="progress__filled"></div>
+    <div class="video-player">
+      <video src="./videos/video (1080p).mp4" class="viewer"></video>
+      <div class="video-controls">
+        <div class="progress-bar">
+          <div class="progress"></div>
         </div>
-        <button class="player__button toggle" title="Toggle Play">
-          &#9658;
-        </button>
-        <input
-          type="range"
-          name="volume"
-          class="player__slider"
-          min="0"
-          max="1"
-          step="0.05"
-          value="1"
-        />
-        <input
-          type="range"
-          name="playbackRate"
-          class="player__slider"
-          min="0.5"
-          max="2"
-          step="0.1"
-          value="1"
-        />
-        <button data-skip="-10" class="player__button">« 10s</button>
-        <button data-skip="25" class="player__button">25s »</button>
+        <button class="player-button play">&#9654;</button>
+        <input type="range" class="sliders" />
+        <input type="range" class="sliders" />
+        <button class="player-button skip" data-skip="10">&#171;10</button>
+        <button class="player-button skip" data-skip="25">25&#187;</button>
       </div>
     </div>
 

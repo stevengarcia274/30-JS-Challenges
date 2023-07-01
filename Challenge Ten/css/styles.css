@@ -1,117 +1,98 @@
-html {
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+:root {
+  --background-color: rgb(253, 214, 140);
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  background: #7a419b;
+  background-color: rgb(253, 214, 140);
+  background: linear-gradient(
+    rgba(252, 181, 74, 0.8),
+    rgb(253, 214, 140),
+    rgb(235, 157, 150)
+  );
   min-height: 100vh;
-  background: linear-gradient(135deg, #7c1599 0%, #921099 48%, #7e4ae8 100%);
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.player {
-  max-width: 750px;
-  border: 5px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+.video-player {
+  width: 100%;
+  max-width: 800px;
+  border: 3px solid var(--background-color);
   position: relative;
-  font-size: 0;
   overflow: hidden;
 }
 
-/* This css is only applied when fullscreen is active. */
-.player:fullscreen {
-  max-width: none;
+.viewer {
+  display: block;
   width: 100%;
 }
 
-.player:-webkit-full-screen {
-  max-width: none;
-  width: 100%;
-}
-
-.player__video {
-  width: 100%;
-}
-
-.player__button {
-  background: none;
-  border: 0;
-  line-height: 1;
-  color: white;
-  text-align: center;
-  outline: 0;
-  padding: 0;
-  cursor: pointer;
-  max-width: 50px;
-}
-
-.player__button:focus {
-  border-color: #ffc600;
-}
-
-.player__slider {
-  width: 10px;
-  height: 30px;
-}
-
-.player__controls {
+.video-controls {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  transform: translateY(100%) translateY(-5px);
-  transition: all 0.3s;
-  flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.35);
+  /* move iy 100% out of the way except for the 8px of progress bar*/
+  /* transform: translateY(100%) translateY(-8px); */
+  transition: all 0.5s;
 }
 
-.player:hover .player__controls {
+.video-player:hover .video-controls {
   transform: translateY(0);
 }
 
-.player:hover .progress {
-  height: 15px;
+.video-player:hover .progress {
+  height: 16px;
 }
 
-.player__controls > * {
+.video-controls > * {
   flex: 1;
 }
 
-.progress {
+.progress-bar {
   flex: 10;
-  position: relative;
-  display: flex;
   flex-basis: 100%;
-  height: 5px;
-  transition: height 0.3s;
-  background: rgba(0, 0, 0, 0.5);
-  cursor: ew-resize;
+  display: flex;
+  position: relative;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-.progress__filled {
+.progress {
   width: 50%;
-  background: #ffc600;
-  flex: 0;
-  flex-basis: 50%;
+  background: orange;
+  height: 8px;
+  transition: all 0.5s;
 }
 
-/* unholy css to style input type="range" */
+.player-button {
+  border: none;
+  color: rgb(202, 202, 202);
+  background: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.player-button:hover {
+  color: orange;
+}
 
 input[type="range"] {
   -webkit-appearance: none;
+  appearance: none;
   background: transparent;
   width: 100%;
+  flex-basis: 150px;
   margin: 0 5px;
 }
 
@@ -123,10 +104,8 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(1, 1, 1, 0);
+  border-radius: 8px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -138,27 +117,4 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -3.5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-}
-
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: #bada55;
-}
-
-input[type="range"]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
-  background: #ffffff;
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(1, 1, 1, 0);
-}
-
-input[type="range"]::-moz-range-thumb {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: #ffc600;
-  cursor: pointer;
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Sequence</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <h1>You Got The CODE!!!!</h1>
+    <script>
+      const secretCode = ["ArrowUp", "ArrowLeft", "ArrowRight", "a", "b", "c"];
+      let count = 0;
+      window.addEventListener("keydown", (e) => {
+        if (count >= secretCode.length - 1 && secretCode[count] == e.key) {
+          console.log("correct code entered");
+          document.querySelector("h1").style.display = "block";
+          count = 0;
+        } else if (secretCode[count] != e.key) {
+          count = 0;
+        } else {
+          count++;
+        }
+
+        console.log(count);
+      });
+    </script>
+  </body>
+</html>

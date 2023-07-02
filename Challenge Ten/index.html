@@ -19,11 +19,28 @@
         <div class="progress-bar">
           <div class="progress"></div>
         </div>
-        <button class="player-button play">&#9654;</button>
-        <input type="range" class="sliders" />
-        <input type="range" class="sliders" />
-        <button class="player-button skip" data-skip="10">&#171;10</button>
-        <button class="player-button skip" data-skip="25">25&#187;</button>
+        <button class="player-button play">
+          <i class="fa fa-play"></i>
+        </button>
+        <input
+          type="range"
+          class="sliders"
+          name="volume"
+          min="0"
+          max="1"
+          step="0.05"
+        />
+        <input
+          type="range"
+          class="sliders"
+          name="playbackRate"
+          min="0.5"
+          max="2"
+          step="0.25"
+          value="1"
+        />
+        <button class="player-button skips" data-skip="-10">&#171;10</button>
+        <button class="player-button skips" data-skip="25">25&#187;</button>
       </div>
     </div>
 

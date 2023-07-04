@@ -5,26 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Key Sequence</title>
 
-    <link rel="stylesheet" href="./css/styles.css" />
+    <script type="text/javascript" src="./js/cornify.js"></script>
   </head>
   <body>
-    <h1>You Got The CODE!!!!</h1>
     <script>
-      const secretCode = ["ArrowUp", "ArrowLeft", "ArrowRight", "a", "b", "c"];
+      const secretCode = "wesbos";
       let count = 0;
       window.addEventListener("keydown", (e) => {
-        if (count >= secretCode.length - 1 && secretCode[count] == e.key) {
+        if (count == secretCode.length - 1 && secretCode[count] == e.key) {
           console.log("correct code entered");
-          document.querySelector("h1").style.display = "block";
+          cornify_add();
           count = 0;
-        } else if (secretCode[count] != e.key) {
+        } else if (secretCode[count] !== e.key) {
           count = 0;
         } else {
           count++;
         }
 
-        console.log(count);
+        //console.log(count);
       });
+
+      //Tutorial Solution
+
+      /* const key = "wesbos";
+      const pressed = [];
+      window.addEventListener("keyup", (e) => {
+        pressed.push(e.key);
+        //console.log(pressed);
+        //console.log(pressed.length - key.length);
+
+        pressed.splice(0, pressed.length - key.length);
+        //OR pressed.splice(-key.length - 1, pressed.length - key.length) for the same effect
+
+        //console.log(pressed);
+        //console.log(pressed.join(""));
+        if (pressed.join("").includes(key)) {
+          console.log("You Got It");
+        }
+      }); */
     </script>
   </body>
 </html>

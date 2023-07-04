@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: rgb(247, 247, 247);
+  padding: 2rem 3.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.article-title {
+  text-decoration: underline;
+  margin-bottom: 32px;
+}
+
+.page-para {
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.para-img {
+  object-fit: cover;
+
+  margin: 12px;
+}
+
+#falls {
+  width: 100%;
+  max-width: 400px;
+  float: left;
+}
+
+#city {
+  width: 100%;
+  max-width: 300px;
+  float: right;
+}
+
+#car {
+  width: 100%;
+  max-width: 300px;
+  float: left;
+}
+
+#dandi {
+  width: 100%;
+  max-width: 350px;
+  float: right;
+}

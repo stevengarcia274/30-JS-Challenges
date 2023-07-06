@@ -1,18 +1,35 @@
-const leeway = 200;
-
-let bringForward = false;
-let pastStatus;
-let id = 1;
-
 const images = document.querySelectorAll(".para-img");
 
-console.log(images);
+
+window.addEventListener("scroll", debounce(checkSlide));
+
 
 function checkSlide(e){
-    console.log(e);
+    //loop over each img and figure out at which point img needs to be shown (peaking at about 50%)
+    images.forEach( image => {
+        //window.scrollY is Y position away from TOP of document
+        //window.innerHeight is the height of our browser window
+
+        //we adthis will give us the Y position of the doc as it appears at the BOTTOM of the window
+        //subtract it by image.height / 2 so img comes in as it peeks halfway
+        const slideInAt = (window.scrollY + window.innerHeight) - 
+            (image.height / 2);
+
+        const imgBottom = image.getBoundingClientRect().bottom;
+
+        const isHalfShown = slideInAt > image.getBoundingClientRect().top;
+        const notScrollPast = window.scrollY < imgBottom;
+
+        if(isHalfShown && notScrollPast){
+            image.classList.add("bring-back");
+        }else{
+            image.classList.remove("bring-back");
+        }
+    });
 }
 
-window.addEventListener("scroll", checkSlide);
+/* debounce is used so checkSlide is Not called everytime we scroll. We feed 
+checkSlide into debounce, then we are only allowed to call it every 20ms */
 
 function debounce(func, wait = 20, immediate = true){
     var timeout;
@@ -31,10 +48,17 @@ function debounce(func, wait = 20, immediate = true){
 
 
 
-/* window.addEventListener("scroll", (e) => {
+/* 
+    const leeway = 200;
+
+    let bringForward = false;
+    let pastStatus;
+    let id = 1;
+
+    window.addEventListener("scroll", (e) => {
     //console.log(e);
     //console.log(window.scrollY);
-    let curImg = document.getElementById(`img-${id}`);
+    let curImg = document.getElementById(`img-1`);
 
     let curImgPosition = curImg.getBoundingClientRect();
     let curImgY = curImgPosition.y + window.scrollY;
@@ -50,7 +74,6 @@ function debounce(func, wait = 20, immediate = true){
 
     if(pastStatus != bringForward){
         curImg.classList.toggle("bring-back");
-        id++;
     }
 
     console.log(bringForward);
@@ -58,8 +81,3 @@ function debounce(func, wait = 20, immediate = true){
 
     
 }); */
-
-
-
-
-/* console.log(fallsPositionY + (falls.style.height / 2)); */

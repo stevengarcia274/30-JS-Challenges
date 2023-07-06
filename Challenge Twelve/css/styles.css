@@ -79,7 +79,7 @@ article {
   margin: 8px 12px;
   object-fit: cover;
   border: 2px solid purple;
-  transition: all 2s;
+  transition: all 1.2s;
 }
 
 .even {
@@ -89,7 +89,7 @@ article {
 
 .odd {
   float: right;
-  transform: translateX(200%);
+  transform: translateX(200%) translateX(0);
 }
 
 .bring-back {

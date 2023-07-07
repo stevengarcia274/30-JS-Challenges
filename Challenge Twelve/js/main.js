@@ -1,12 +1,32 @@
 const images = document.querySelectorAll(".para-img");
 
-
-
 window.addEventListener("scroll", debounce(checkSlide));
+
+//window.scrollY is basically top/beginning of browser window to top of document distance
 
 
 function checkSlide(e){
-    
+    //loop over each img and figure out at which point img needs to be shown (peaking at about 50%)
+    images.forEach( image => {
+        //window.scrollY is Y position away from TOP of document
+        //window.innerHeight is the height of our browser window
+
+        //we adthis will give us the Y position of the doc as it appears at the BOTTOM of the window
+        //subtract it by image.height / 2 so img comes in as it peeks halfway
+        const slideInAt = (window.scrollY + window.innerHeight) - 
+            (image.height / 2);
+
+        const imgBottom = image.getBoundingClientRect().bottom;
+
+        const isHalfShown = slideInAt > image.getBoundingClientRect().top;
+        const notScrollPast = window.scrollY < imgBottom;
+
+        if(isHalfShown && notScrollPast){
+            image.classList.add("bring-back");
+        }else{
+            image.classList.remove("bring-back");
+        }
+    });
     
 }
 
@@ -63,26 +83,3 @@ function debounce(func, wait = 20, immediate = true){
 
     
 }); */
-
-/* 
-//loop over each img and figure out at which point img needs to be shown (peaking at about 50%)
-    images.forEach( image => {
-        //window.scrollY is Y position away from TOP of document
-        //window.innerHeight is the height of our browser window
-
-        //we adthis will give us the Y position of the doc as it appears at the BOTTOM of the window
-        //subtract it by image.height / 2 so img comes in as it peeks halfway
-        const slideInAt = (window.scrollY + window.innerHeight) - 
-            (image.height / 2);
-
-        const imgBottom = image.getBoundingClientRect().bottom;
-
-        const isHalfShown = slideInAt > image.getBoundingClientRect().top;
-        const notScrollPast = window.scrollY < imgBottom;
-
-        if(isHalfShown && notScrollPast){
-            image.classList.add("bring-back");
-        }else{
-            image.classList.remove("bring-back");
-        }
-    }); */

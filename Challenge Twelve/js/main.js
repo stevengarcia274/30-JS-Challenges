@@ -1,6 +1,7 @@
 const images = document.querySelectorAll(".para-img");
 
 
+
 window.addEventListener("scroll", debounce(checkSlide));
 
 

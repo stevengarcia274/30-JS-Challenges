@@ -1,0 +1,93 @@
+:root {
+  --line-grey: rgba(155, 155, 155, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../imgs/bg-restaurant.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.list-container {
+  padding: 16px;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(247, 247, 247, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 12px 6px 12px rgba(58, 58, 58, 0.795);
+}
+
+.list-form {
+  margin-top: 12px;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.option {
+  width: 100%;
+  border-bottom: 1px solid var(--line-grey);
+  display: flex;
+  padding: 12px;
+}
+
+.op-title {
+  margin-left: 12px;
+  font-size: 1.2rem;
+}
+
+.enter-new {
+  align-self: center;
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-item {
+  background: rgb(161, 161, 161);
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+}
+
+.submit-item:hover {
+  background: rgb(229, 255, 194);
+}
+
+.enter-item {
+  border: 1px solid var(--line-grey);
+  border-radius: 3px;
+  font-size: 1rem;
+  margin-right: 8px;
+  padding: 4px 8px;
+}
+
+.enter-item:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 395px) {
+  .submit-item {
+    margin-top: 12px;
+  }
+}

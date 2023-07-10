@@ -10,6 +10,7 @@
 }
 
 body {
+  padding: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +22,7 @@ body {
 }
 
 .list-container {
-  padding: 16px;
+  padding: 16px 36px;
   width: 100%;
   max-width: 400px;
   background: rgba(247, 247, 247, 0.85);
@@ -36,7 +37,8 @@ body {
 
 .list-form {
   margin-top: 12px;
-  width: 85%;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -52,6 +54,9 @@ body {
 .op-title {
   margin-left: 12px;
   font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 
 .enter-new {

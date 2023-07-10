@@ -11,20 +11,27 @@
     <div class="list-container">
       <h1>Local Tapas</h1>
       <form action="#" class="list-form">
-        <div class="option">
-          <input type="checkbox" name="defaultOp-1" id="deOp-1" />
-          <label for="defaultOp-1" class="op-title">Gambas</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" name="defaultOp-2" id="deOp-2" />
-          <label for="defaultOp-2" class="op-title">Squid</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" name="defaultOp-3" id="deOp-3" />
-          <label for="defaultOp-3" class="op-title">Tacos</label>
+        <div class="all-options">
+          <div class="option">
+            <input type="checkbox" name="defaultOp-1" id="deOp-1" />
+            <label for="defaultOp-1" class="op-title">Gambas</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" name="defaultOp-2" id="deOp-2" />
+            <label for="defaultOp-2" class="op-title">Squid</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" name="defaultOp-3" id="deOp-3" />
+            <label for="defaultOp-3" class="op-title">Tacos</label>
+          </div>
         </div>
         <div class="enter-new">
-          <input type="text" placeholder="Item name" class="enter-item" />
+          <input
+            type="text"
+            placeholder="Item name"
+            class="enter-item"
+            maxlength="30"
+          />
           <button type="submit" class="submit-item">+ Add Item</button>
         </div>
       </form>

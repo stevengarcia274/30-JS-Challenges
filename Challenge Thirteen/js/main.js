@@ -90,3 +90,8 @@ submitItem.addEventListener("click", addItem);
 
 window.addEventListener("load", loadItems);
 
+optionsList.addEventListener("click", (e) => {
+    if(e.target.tagName === "LABEL"){
+        console.log(e.target);
+    }
+})

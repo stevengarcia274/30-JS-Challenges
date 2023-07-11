@@ -96,13 +96,3 @@ body {
     margin-top: 12px;
   }
 }
-
-.parent {
-  width: 200px;
-  padding: 16px;
-  background: orange;
-}
-
-.child {
-  background: red;
-}

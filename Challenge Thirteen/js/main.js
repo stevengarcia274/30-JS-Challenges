@@ -52,7 +52,7 @@ function createElement(txt, num){
     option.appendChild(input);
     option.appendChild(label);
 
-    console.log(option);
+    /* console.log(option); */
 
     optionsList.appendChild(option);
 
@@ -80,7 +80,7 @@ function loadItems(){
     id = localStorage.length;
     let i = 0;
     while(i < id){
-        console.log(localStorage.getItem(i));
+        /* console.log(localStorage.getItem(i)); */
         createElement(localStorage.getItem(i), i);
         i++;
     }
@@ -92,6 +92,8 @@ window.addEventListener("load", loadItems);
 
 optionsList.addEventListener("click", (e) => {
     if(e.target.tagName === "LABEL"){
-        console.log(e.target);
+        const corespondingBox = e.target.previousElementSibling;
+        corespondingBox.checked = !corespondingBox.checked;
+        
     }
 })

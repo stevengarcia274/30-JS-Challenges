@@ -54,6 +54,49 @@
       </form>
     </div>
 
-    <script></script>
+    <script>
+      const enterItem = document.querySelector(".add-items");
+      const loadList = document.querySelector(".plates");
+
+      //place to store our added items
+      const items = JSON.parse(localStorage.getItem("item")) || [];
+
+      function addItem(e) {
+        e.preventDefault();
+        const text = this.querySelector("[name=item]").value;
+        const item = {
+          text,
+          done: false,
+        };
+
+        items.push(item);
+
+        renderList(items, loadList);
+
+        localStorage.setItem("item", JSON.stringify(items));
+
+        enterItem.reset();
+      }
+
+      function renderList(items = [], renderLocation) {
+        renderLocation.innerHTML = items
+          .map((item, i) => {
+            return `
+            <li>
+              <input type="checkbox" 
+              data-index=${i} 
+              id="option-${i}" 
+              ${item.done ? "checked" : ""} /> 
+              <label for="option-${i}">${item.text}</label>
+              
+            </li>
+            `;
+          })
+          .join("");
+      }
+
+      renderList(items, loadList);
+      enterItem.addEventListener("submit", addItem);
+    </script>
   </body>
 </html>

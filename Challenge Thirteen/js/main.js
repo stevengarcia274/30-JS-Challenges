@@ -90,6 +90,8 @@ submitItem.addEventListener("click", addItem);
 
 window.addEventListener("load", loadItems);
 
+//mine is a bad solution b/c it doesn't remeber if box was clicked on load
+
 optionsList.addEventListener("click", (e) => {
     if(e.target.tagName === "LABEL"){
         const corespondingBox = e.target.previousElementSibling;

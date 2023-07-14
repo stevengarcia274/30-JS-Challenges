@@ -1,0 +1,64 @@
+<body>
+    <h1 class="page-title">
+      JOIN ME <br />
+      AT THE PARK
+    </h1>
+
+    <script>
+      const text = document.querySelector(".page-title");
+
+      function moveShadow(e) {
+        const offsetX = e.offsetX;
+        const offsetY = e.offsetY;
+
+        const midX = this.offsetWidth / 2;
+        const midY = this.offsetHeight / 2;
+
+        const shadowValX = -((offsetX - midX) / 4);
+        const shadowValY = -((offsetY - midY) / 4);
+
+        /* text.style.textShadow = `${offsetX > midX ? "-" : ""}12px ${offsetY > midY ? "-" : ""}12px 5px rgb(8, 65, 8)`; */
+
+        text.style.textShadow = `${shadowValX}px ${shadowValY}px 6px rgb(8, 65, 8)`;
+
+        /* dimensions of our element container
+              console.log(this.offsetWidth);
+              console.log(this.offsetHeight);
+          */
+      }
+
+      text.addEventListener("mousemove", moveShadow);
+    </script>
+  </body>
+
+  --------------------------
+
+  @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Anton", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(137, 187, 137);
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+.page-title {
+  transform: rotate(-10deg);
+  color: rgb(243, 243, 243);
+  text-shadow: 0px 0px 6px rgb(8, 65, 8);
+  cursor: default;
+  text-align: center;
+}

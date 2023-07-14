@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Shadow</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable>🔥WOAH!</h1>
+    </div>
+
+    <style>
+      html {
+        color: black;
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+      }
+
+      h1 {
+        text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+        font-size: 100px;
+      }
+    </style>
+
+    <script>
+      const hero = document.querySelector(".hero");
+      const txt = hero.querySelector("h1");
+
+      //how many range of how our shadow stretches
+      //with the math bellow the shadow will be either -50px or 50px
+      const walk = 100;
+
+      function shadow(e) {
+        const containerWidth = this.offsetWidth;
+        const containerHeight = this.offsetHeight;
+
+        let cursorX = e.offsetX;
+        let cursorY = e.offsetY;
+
+        //when you enter a child element the offsets reset to start from zero
+        if (this !== event.target) {
+          //take the offset coordinate that's in the child and add it with how far offset the child is from the parent
+          cursorX += e.target.offsetLeft;
+          cursorY += e.target.offsetTop;
+        }
+
+        const xWalk = Math.round((cursorX / containerWidth) * walk - walk / 2);
+        const yWalk = Math.round((cursorY / containerHeight) * walk - walk / 2);
+
+        txt.style.textShadow = `${xWalk}px ${yWalk}px 0 red`;
+      }
+
+      hero.addEventListener("mousemove", shadow);
+    </script>
+  </body>
+</html>

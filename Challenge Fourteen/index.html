@@ -12,59 +12,36 @@
       <h1 contenteditable>🔥WOAH!</h1>
     </div>
 
-    <style>
-      html {
-        color: black;
-        font-family: sans-serif;
-      }
-
-      body {
-        margin: 0;
-      }
-
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-      }
-
-      h1 {
-        text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
-        font-size: 100px;
-      }
-    </style>
-
     <script>
       const hero = document.querySelector(".hero");
-      const txt = hero.querySelector("h1");
+      const text = hero.querySelector("h1");
 
-      //how many range of how our shadow stretches
-      //with the math bellow the shadow will be either -50px or 50px
-      const walk = 100;
+      function moveShadow(e) {
+        let x = e.offsetX;
+        let y = e.offsetY;
 
-      function shadow(e) {
-        const containerWidth = this.offsetWidth;
-        const containerHeight = this.offsetHeight;
+        const walk = 80;
 
-        let cursorX = e.offsetX;
-        let cursorY = e.offsetY;
+        const width = this.offsetWidth;
+        const height = this.offsetHeight;
 
-        //when you enter a child element the offsets reset to start from zero
-        if (this !== event.target) {
-          //take the offset coordinate that's in the child and add it with how far offset the child is from the parent
-          cursorX += e.target.offsetLeft;
-          cursorY += e.target.offsetTop;
+        if (e.target !== this) {
+          x += e.target.offsetLeft;
+          y += e.target.offsetTop;
         }
 
-        const xWalk = Math.round((cursorX / containerWidth) * walk - walk / 2);
-        const yWalk = Math.round((cursorY / containerHeight) * walk - walk / 2);
+        const midX = width / 2;
+        const midY = height / 2;
 
-        txt.style.textShadow = `${xWalk}px ${yWalk}px 0 red`;
+        const shadowValX = -Math.round((x - midX) / (walk / 2));
+        const shadowValY = -Math.round((y - midY) / (walk / 2));
+
+        text.style.textShadow = `${shadowValX}px ${shadowValY}px 0px red`;
+
+        console.log(shadowValX, shadowValY);
       }
 
-      hero.addEventListener("mousemove", shadow);
+      hero.addEventListener("mousemove", moveShadow);
     </script>
   </body>
 </html>

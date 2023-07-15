@@ -30,15 +30,32 @@
           y += e.target.offsetTop;
         }
 
-        const midX = width / 2;
-        const midY = height / 2;
+        /* We don't want the text shadow to go entirely
+        from one corner to the next. Need some limit on
+        the range, hence the walk. Also we can't have
+        the shadow values going from 0 - 100 if walk is
+        100, it needs to be -50 -> 50 to get the effect
+        that it can circulate up/down/left/right */
 
-        const shadowValX = -Math.round((x - midX) / (walk / 2));
-        const shadowValY = -Math.round((y - midY) / (walk / 2));
+        const shadowX = Math.round((x / width) * walk) - walk / 2;
+        /* x / width give us the percent of our position
+        along the width */
 
-        text.style.textShadow = `${shadowValX}px ${shadowValY}px 0px red`;
+        /* multiplying it by walk puts it in the
+        perspective of the "range" we want*/
 
-        console.log(shadowValX, shadowValY);
+        /* subtraction of walk / 2 ensures we don't fall
+        into the trap of getting values that are just 
+        0 -> walk */
+        const shadowY = Math.round((y / height) * walk) - walk / 2;
+
+        text.style.textShadow = `
+          ${shadowX}px ${shadowY}px 0px red,
+          ${-shadowX}px ${shadowY}px 0px blue,
+          ${shadowX}px ${-shadowY}px 0px yellow
+        `;
+
+        console.log(shadowX, shadowY);
       }
 
       hero.addEventListener("mousemove", moveShadow);

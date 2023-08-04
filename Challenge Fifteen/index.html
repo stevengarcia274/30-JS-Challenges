@@ -46,7 +46,7 @@
 
     <script>
       const bands = [
-        "The Plot in You",
+        "the Plot in You",
         "The Devil Wears Prada",
         "Pierce the Veil",
         "Norma Jean",
@@ -60,6 +60,27 @@
         "Anywhere But Here",
         "An Old Dog",
       ];
+
+      function myFunc(e) {
+        let eArr = e.split(" ");
+
+        let regThe = new RegExp("the", "ig");
+        let regAn = new RegExp("an", "ig");
+        let regA = new RegExp("\ba", "ig");
+
+        if (
+          eArr[0].toLowerCase() == "the" ||
+          eArr[0].toLowerCase() == "a" ||
+          eArr[0].toLowerCase() == "an"
+        ) {
+          eArr.splice(0, 1);
+        }
+        return eArr.join(" ");
+      }
+
+      let newBand = bands.map(myFunc);
+
+      console.log(newBand);
     </script>
   </body>
 </html>

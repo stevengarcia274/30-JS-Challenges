@@ -61,26 +61,15 @@
         "An Old Dog",
       ];
 
-      function myFunc(e) {
-        let eArr = e.split(" ");
-
-        let regThe = new RegExp("the", "ig");
-        let regAn = new RegExp("an", "ig");
-        let regA = new RegExp("\ba", "ig");
-
-        if (
-          eArr[0].toLowerCase() == "the" ||
-          eArr[0].toLowerCase() == "a" ||
-          eArr[0].toLowerCase() == "an"
-        ) {
-          eArr.splice(0, 1);
-        }
-        return eArr.join(" ");
+      function strip(bandName) {
+        return bandName.replace(/^(a |the |an )/i, "").trim();
       }
 
-      let newBand = bands.map(myFunc);
+      const sortedBands = bands.sort((a, b) => (strip(a) > strip(b) ? 1 : -1));
 
-      console.log(newBand);
+      document.querySelector("#bands").innerHTML = sortedBands
+        .map((band) => `<li>${band}</li>`)
+        .join("");
     </script>
   </body>
 </html>
